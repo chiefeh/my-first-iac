@@ -16,7 +16,7 @@ resource "aws_instance" "web_server" {
               #!/bin/bash
               sudo su
               yum -y install httpd
-              echo "<h1> my-first-iac.chiefeh.digital </h1>" >> /var/www/html/index.html
+              echo "<h1> my-first-iac.chiefeh.digital in eu-west-1 IRELAND </h1>" >> /var/www/html/index.html
               sudo systemctl enable httpd
               sudo systemctl start httpd
               EOF
