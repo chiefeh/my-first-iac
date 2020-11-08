@@ -1,5 +1,5 @@
 resource "aws_route53_record" "chiefeh-digital" {
-  zone_id = "Z09953346UVXNI7YWBKZ"
+  zone_id = env.route53_zoneid
   name = "my-first-iac.chiefeh.digital"
   type = "A"
   ttl = "300"
