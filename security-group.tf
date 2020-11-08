@@ -43,23 +43,6 @@ resource "aws_security_group" "all-outbound" {
   }
 }
 
-resource "aws_security_group" "ssh-from-home" {
-  name = "ssh-from-home"
-  description = "Allow SSH from ZEN DSL"
-  vpc_id = aws_vpc.this.id
-
-    ingress {
-        from_port   = 22
-        to_port     = 22
-        protocol    = "tcp"
-        cidr_blocks = ["217.155.44.110/32"]
-        
-    }
-  tags = {
-    Name = var.project
-  }
-}
-
 resource "aws_security_group" "icmp-inbound" {
   name = "allow-icmp-inbound"
   description = "Allow ICMP inbound"
