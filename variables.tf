@@ -6,6 +6,7 @@ variable "project" {
     default = "my-first-iac"
 }
 
-variable "ROUTE53_ZONEID" {
+variable "route53_zoneid" {
     type = string
+    default = "Z09953346UVXNI7YWBKZ"
 }
