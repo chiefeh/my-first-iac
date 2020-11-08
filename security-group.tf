@@ -25,6 +25,23 @@ resource "aws_security_group" "allow-http-https" {
   }
 }
 
+resource "aws_security_group" "ssh" {
+  name = "ssh-from-home"
+  description = "Allow SSH"
+  vpc_id = aws_vpc.this.id
+
+    ingress {
+        from_port   = 22
+        to_port     = 22
+        protocol    = "tcp"
+        cidr_blocks = ["217.155.44.110/32"]
+        
+    }
+  tags = {
+    Name = var.project
+  }
+}
+
 
 resource "aws_security_group" "all-outbound" {
   name = "allow-all-outbound"

@@ -6,7 +6,10 @@ resource "aws_instance" "web_server" {
   key_name = aws_key_pair.gregory.id
   associate_public_ip_address = true
   ipv6_address_count = 1
-  vpc_security_group_ids = [ aws_security_group.allow-http-https.id, aws_security_group.icmp-inbound.id, aws_security_group.all-outbound.id]
+  vpc_security_group_ids = [  aws_security_group.allow-http-https.id, 
+                              aws_security_group.icmp-inbound.id, 
+                              aws_security_group.all-outbound.id,
+                              aws_security_group.ssh.id ]
   instance_initiated_shutdown_behavior = "stop"
   iam_instance_profile = "chiefeh-amazonEC2roleforSSM"
   tags = {
