@@ -7,9 +7,12 @@ jobs:
     runs-on: ubuntu-latest
 
 defaults:
-    steps:
-      - uses: actions/checkout@v2
-      - uses: hashicorp/setup-terraform@v1
+  run:
+    working-directory: ${{ env.tf_actions_working_dir }}
+    
+steps:
+    - uses: actions/checkout@v2
+    - uses: hashicorp/setup-terraform@v1
 
     - name: Verify Terraform version
       run: terraform --version
